@@ -4,7 +4,6 @@ import config from 'config';
 import { db } from '../modules/server';
 import { app } from '../modules/server'
 import * as crypto from 'crypto';
-import * as jwt from 'jsonwebtoken';
 
 export function registerUser(req: express.Request, res: express.Response, next: express.NextFunction){
     let userId: number = db.getUsersCount()['COUNT(ID)'] + 1;
@@ -12,7 +11,7 @@ export function registerUser(req: express.Request, res: express.Response, next: 
     console.log(token)
     let user: object = {
         id: userId,
-        config: "d",
+        config: "no config",
         token: token
     }
 
@@ -28,9 +27,7 @@ export function registerUser(req: express.Request, res: express.Response, next: 
 
 export function getConfig(req: express.Request, res: express.Response, next: express.NextFunction){
     try{
-        let user: string = "";
-        let payload: any = jwt.decode(req.query.token as string);
-        let id: string = JSON.parse(payload).id;
+        let token = req.query.token?.toString();
         
     }
     catch(e){
