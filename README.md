@@ -16,6 +16,10 @@
   </p>
 <br />
 
+### 🤔 Description
+NeutronVPN API responses have a syntax. Response always have fields named `status`, `message` and `code`.
+<br /> `status` field is OK or ERROR. `message` field is full variant of `code`. `code` field contains status code (not HTTP status code!) like:
+<br />`user_created` is used with `status` equal OK and means that user was registered successfully.
 ### 💻 TODO
 | Idea | Progress |
 | ------ | ----------- |
