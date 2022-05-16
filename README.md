@@ -21,6 +21,13 @@
 | ------ | ----------- |
 | Automatic config generator | Planned |
 
+### ⚡ Endpoints
+| Endpoint | Description |
+| ------ | ------------------ |
+| / | Returns version and list of endpoints |
+| /user/register | Register a user |
+| /coffee/make | Make coffee |
+
 ### 📦 Installing dependencies and running server
 Install dependencies with `npm install`
 Build with `tsc`
