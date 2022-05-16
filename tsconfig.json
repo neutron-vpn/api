@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "strict": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitThis": false,
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@plugins/*": ["plugins/*"],
+      "@config/*": ["config/*"],
+      "@interfaces/*": ["interfaces/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
