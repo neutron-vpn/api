@@ -24,6 +24,7 @@ NeutronVPN API responses have a syntax. Response always have fields named `statu
 | Idea | Progress |
 | ------ | ----------- |
 | Automatic config generator | Planned |
+| Get network status | Planned |
 
 ### ⚡ Endpoints
 | Endpoint | Description |
