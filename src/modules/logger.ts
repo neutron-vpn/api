@@ -1,30 +1,30 @@
 import * as winston from 'winston';
 
-const myFormat = winston.format.printf(({ timestamp, level, message, meta }) => {
-    return `${timestamp} ${level} ${message}`;
-  });
+const myFormat = winston.format.printf(({timestamp, level, message, meta}) => {
+  return `${timestamp} ${level} ${message}`;
+});
 
 export const createLogger = () => {
-  let Winston = winston.createLogger({
+  const Winston = winston.createLogger({
     transports: [
       new winston.transports.Console({
-        level: "debug",
-      })
+        level: 'debug',
+      }),
     ],
     format: winston.format.combine(
         winston.format.colorize(),
         winston.format.splat(),
         winston.format.timestamp({format: 'YYYY-MM-DD HH:mm:ss'}),
-        myFormat
+        myFormat,
     ),
-})
- winston.addColors({
-  error: 'red',
-  warn: 'yellow',
-  info: 'blue',
-  debug: 'green',
-  silly: 'magenta',
-  verbose: 'blue'
-});
-return Winston;
-}
+  });
+  winston.addColors({
+    error: 'red',
+    warn: 'yellow',
+    info: 'blue',
+    debug: 'green',
+    silly: 'magenta',
+    verbose: 'blue',
+  });
+  return Winston;
+};
