@@ -8,7 +8,7 @@
   "private": false,
   "scripts": {
     "eslint": "./node_modules/.bin/eslint --fix 'src/**/*.ts'",
-    "start": "ts-node src/cli.ts",
+    "start": "ts-node src/index.ts",
     "build": "tsc",
     "prod": "node dist/cli"
   },
