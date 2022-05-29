@@ -1,3 +1,15 @@
 {
-  "rewrites": [{ "source": "/dist/(.*)", "destination": "/api" }]
+  "version": 2,
+  "builds": [
+      {
+          "src": "./dist/cli.js",
+          "use": "@vercel/node"
+      }
+  ],
+  "routes": [
+      {
+          "src": "dist/routes(.*)",
+          "dest": "dist/routes"
+      }
+  ]
 }
