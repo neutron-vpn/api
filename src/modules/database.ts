@@ -10,6 +10,7 @@ const sql = new Database('database.db');
 export class ServerDatabase {
   public sql: any;
   public getByID: Statement;
+  public getByName: Statement;
   public setByID: Statement;
 
   /**
@@ -18,17 +19,21 @@ export class ServerDatabase {
    */
   constructor() {
     this.sql = sql;
-    const tableUsers = this.sql.prepare().get();
+    const tableUsers = sql.prepare('SELECT count(*) FROM sqlite_master WHERE type=\'table\' AND name = \'users\';').get();
     if (!tableUsers['count(*)']) {
       this.sql.prepare('CREATE TABLE users (id TEXT PRIMARY KEY, ' +
-      'config TEXT, token TEXT);').run();
+      'username TEXT, hash TEXT);').run();
       this.sql.prepare('CREATE UNIQUE INDEX ' +
       'idx_scores_id ON users (id);').run();
+      this.sql.pragma('synchronous = 1');
+      this.sql.pragma('journal_mode = wal');
     }
     this.getByID = sql.prepare('SELECT * FROM users ' +
     'WHERE id = ?');
-    this.setByID = sql.prepare('INSERT OR REPLACE INTO users (id, config, ' +
-    'token) VALUES (@id, @config, @token);');
+    this.getByName = sql.prepare('SELECT * FROM users ' +
+    'WHERE username = ?');
+    this.setByID = sql.prepare('INSERT OR REPLACE INTO users (id, username, ' +
+    'hash) VALUES (@id, @username, @hash);');
   }
 
   /**

@@ -7,15 +7,16 @@
     "outDir": "dist",
     "sourceMap": true,
     "skipLibCheck": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "noImplicitThis": false,
     "paths": {
       "@modules/*": ["modules/*"],
-      "@plugins/*": ["plugins/*"],
-      "@config/*": ["config/*"],
-      "@interfaces/*": ["interfaces/*"]
+      "@lib/*": ["lib/*"],
+      "@routes/*": ["routes/*"],
+      "@services/*": ["services/*"],
+      "@root/*": ["./*"]
     }
   },
   "include": ["src/**/*"]
